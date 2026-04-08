@@ -321,17 +321,50 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast('Panier vidé');
     });
 
-    // Checkout
-    cartCheckout.addEventListener('click', () => {
-        const total = getTotal();
-        const count = cart.reduce((sum, item) => sum + item.qty, 0);
-        const summary = cart.map(item => `${item.name} ×${item.qty}`).join('\n');
-        alert(`Merci pour votre commande !\n\n${summary}\n\nTotal : ${total} € (${count} articles)\n\nNous préparons votre commande avec amour 🇮🇹`);
-        cart = [];
-        renderCart();
-        closeCart();
+    // Checkout — Stripe Checkout Session
+    cartCheckout.addEventListener('click', async () => {
+        if (cart.length === 0) return;
+
+        // Show loading state
+        const origText = cartCheckout.textContent;
+        cartCheckout.textContent = 'Redirection…';
+        cartCheckout.disabled = true;
+
+        try {
+            const res = await fetch('/api/create-checkout-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ items: cart }),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || 'Checkout failed');
+            }
+
+            // Redirect to Stripe hosted checkout
+            window.location.href = data.url;
+        } catch (err) {
+            alert('Erreur lors du paiement : ' + err.message);
+            cartCheckout.textContent = origText;
+            cartCheckout.disabled = false;
+        }
     });
 
     // Initial render
     renderCart();
+
+    // Handle Stripe checkout result
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('checkout') === 'success') {
+        cart = [];
+        saveCart();
+        renderCart();
+        showToast('Paiement réussi — Merci ! 🇮🇹');
+        window.history.replaceState({}, '', window.location.pathname);
+    } else if (params.get('checkout') === 'cancel') {
+        showToast('Paiement annulé');
+        window.history.replaceState({}, '', window.location.pathname);
+    }
 });
