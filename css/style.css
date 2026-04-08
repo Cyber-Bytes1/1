@@ -10,14 +10,17 @@
 }
 
 :root {
-    --color-bg: #fdfbf7;
+    --color-bg: #faf7f2;
     --color-text: #2c2c2c;
-    --color-muted: #6b6b6b;
-    --color-accent: #b5453a;
-    --color-accent-light: #d4756c;
-    --color-gold: #c9a84c;
-    --color-cream: #f5efe3;
-    --color-dark: #1a1a1a;
+    --color-muted: #7a7167;
+    --color-accent: #c0392b;
+    --color-accent-light: #e74c3c;
+    --color-gold: #d4a843;
+    --color-cream: #f0e9dc;
+    --color-dark: #1b1712;
+    --color-olive: #4a6741;
+    --color-terracotta: #c0654a;
+    --color-warm-white: #fefcf8;
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Lato', 'Segoe UI', sans-serif;
     --max-width: 1100px;
@@ -160,7 +163,7 @@ a {
     justify-content: center;
     text-align: center;
     color: #fff;
-    background: linear-gradient(135deg, #2c1810 0%, #1a1a1a 50%, #2c1810 100%);
+    background: linear-gradient(160deg, #1b1712 0%, #2a1f17 30%, #1b1712 60%, #2a1f17 100%);
     overflow: hidden;
 }
 
@@ -173,8 +176,21 @@ a {
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse at 20% 50%, rgba(181, 69, 58, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 50%, rgba(201, 168, 76, 0.1) 0%, transparent 50%);
+        radial-gradient(ellipse at 20% 40%, rgba(192, 57, 43, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 75% 60%, rgba(74, 103, 65, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(212, 168, 67, 0.08) 0%, transparent 40%);
+}
+
+/* Italian flag stripe at bottom of hero */
+.hero::after, .about-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #009246 33.33%, #fff 33.33%, #fff 66.66%, #ce2b37 66.66%);
+    z-index: 2;
 }
 
 .hero-overlay {
@@ -269,25 +285,39 @@ a {
 }
 
 .btn-primary {
-    background: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-terracotta) 100%);
     color: #fff;
-    border: 2px solid var(--color-accent);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(192, 57, 43, 0.25);
 }
 
 .btn-primary:hover {
     background: transparent;
     color: #fff;
     border-color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
 }
 
 /* ---------- Menu Section ---------- */
 .menu-section {
     padding: 6rem 0;
     background: var(--color-bg);
+    position: relative;
+}
+
+/* Subtle texture overlay */
+.menu-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30' stroke='%23d4a843' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none;
 }
 
 .menu-category {
     margin-bottom: 5rem;
+    position: relative;
 }
 
 .menu-category:last-child {
@@ -298,22 +328,34 @@ a {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
 }
 
 .category-line {
     flex: 1;
     height: 1px;
-    background: var(--color-gold);
-    opacity: 0.4;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+    opacity: 0.5;
 }
 
 .category-title {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 700;
     color: var(--color-dark);
     white-space: nowrap;
+    position: relative;
+}
+
+/* Italian-flag underline on category title */
+.category-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 0.4rem auto 0;
+    background: linear-gradient(90deg, #009246 33.33%, #fff 33.33%, #fff 66.66%, #ce2b37 66.66%);
+    border-radius: 2px;
 }
 
 .category-subtitle {
@@ -322,26 +364,51 @@ a {
     color: var(--color-muted);
     font-size: 1rem;
     margin-bottom: 2.5rem;
+    letter-spacing: 0.5px;
 }
 
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .menu-item {
-    background: #fff;
-    border-radius: 8px;
-    padding: 1.8rem;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: transform var(--transition), box-shadow var(--transition);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(212, 168, 67, 0.12);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative corner accent */
+.menu-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, transparent 50%, rgba(212, 168, 67, 0.08) 50%);
+    border-radius: 0 16px 0 0;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover::after {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, transparent 50%, rgba(212, 168, 67, 0.15) 50%);
 }
 
 .menu-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    border-color: rgba(212, 168, 67, 0.3);
 }
 
 .menu-item-header {
@@ -354,48 +421,63 @@ a {
 
 .item-name {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 700;
     line-height: 1.3;
     color: var(--color-dark);
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover .item-name {
+    color: var(--color-accent);
 }
 
 .item-price {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: var(--color-accent);
+    color: var(--color-olive);
     white-space: nowrap;
+    padding: 0.15rem 0.6rem;
+    background: rgba(74, 103, 65, 0.08);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover .item-price {
+    background: rgba(74, 103, 65, 0.15);
 }
 
 .item-desc {
     font-size: 0.9rem;
     color: var(--color-muted);
-    line-height: 1.65;
+    line-height: 1.7;
 }
 
 /* ---------- Add to Cart Button ---------- */
 .btn-add-cart {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 1.2rem;
+    padding: 0.55rem 1.3rem;
     font-family: var(--font-body);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    color: var(--color-accent);
-    background: transparent;
-    border: 1.5px solid var(--color-accent);
-    border-radius: 4px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-terracotta) 100%);
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.2);
 }
 
 .btn-add-cart:hover {
-    background: var(--color-accent);
-    color: #fff;
-    transform: scale(1.05);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 16px rgba(192, 57, 43, 0.35);
 }
 
 .btn-add-cart:active {
@@ -792,14 +874,23 @@ a {
 .footer {
     background: var(--color-dark);
     color: rgba(255, 255, 255, 0.7);
-    padding: 3rem 0 1.5rem;
+    padding: 0 0 1.5rem;
+    position: relative;
+}
+
+/* Italian flag stripe at top of footer */
+.footer::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, #009246 33.33%, #fff 33.33%, #fff 66.66%, #ce2b37 66.66%);
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 2rem;
+    padding: 2.5rem 0 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
