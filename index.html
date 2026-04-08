@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Italie sur roues — Restaurant</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🇮🇹</span>
+                <span class="logo-text">L'Italie sur roues</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="#menu">La Carte</a></li>
+                <li><a href="about.html">À Propos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Bienvenue chez</p>
+            <h1 class="hero-title">L'Italie sur roues</h1>
+            <p class="hero-tagline">Oui, on roule pour vous… et pour la bonne cuisine&nbsp;!</p>
+            <a href="#menu" class="btn btn-primary">Découvrir la carte</a>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+
+            <!-- Entrées -->
+            <div class="menu-category">
+                <div class="category-header">
+                    <span class="category-line"></span>
+                    <h2 class="category-title">Entrées</h2>
+                    <span class="category-line"></span>
+                </div>
+                <p class="category-subtitle">Pour commencer</p>
+
+                <div class="menu-grid">
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Œuf nuage à la truffe</h3>
+                            <span class="item-price">14 €</span>
+                        </div>
+                        <p class="item-desc">Blanc d'œuf battu cuit au four, jaune coulant à cœur, servi sur un lit de poireaux fondants à l'huile de truffe noire.</p>
+                    </article>
+
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Rose de betterave et fromage de chèvre frais</h3>
+                            <span class="item-price">12 €</span>
+                        </div>
+                        <p class="item-desc">Fines tranches de betterave rôtie au sel, mousse de fromage de chèvre au miel de fleurs sauvages, éclats de noix et vinaigrette au champagne.</p>
+                    </article>
+
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Velouté crémeux aux châtaignes</h3>
+                            <span class="item-price">11 €</span>
+                        </div>
+                        <p class="item-desc">Soupe onctueuse aux châtaignes rôties, servie avec du bacon fumé croustillant et une touche de crème fraîche.</p>
+                    </article>
+
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Coquilles Saint-Jacques à la parisienne</h3>
+                            <span class="item-price">18 €</span>
+                        </div>
+                        <p class="item-desc">Coquilles Saint-Jacques poêlées au beurre noisette sur une pâte feuilletée légère, émulsion de safran et jeunes pousses.</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Plats Principaux -->
+            <div class="menu-category">
+                <div class="category-header">
+                    <span class="category-line"></span>
+                    <h2 class="category-title">Plats principaux</h2>
+                    <span class="category-line"></span>
+                </div>
+                <p class="category-subtitle">Au cœur de notre cuisine</p>
+
+                <div class="menu-grid">
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Poulet en pâte à brique et estragon</h3>
+                            <span class="item-price">24 €</span>
+                        </div>
+                        <p class="item-desc">Demi-coq, pressé et rôti pour une peau extra croustillante, avec un jus riche à l'estragon frais et au citron.</p>
+                    </article>
+
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Filet mignon sauce aux baies roses</h3>
+                            <span class="item-price">32 €</span>
+                        </div>
+                        <p class="item-desc">Filet mignon de bœuf en croûte de baies roses, sauce crémeuse au cognac, servi avec un gratin dauphinois traditionnel.</p>
+                    </article>
+
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Jarret d'agneau provençal</h3>
+                            <span class="item-price">28 €</span>
+                        </div>
+                        <p class="item-desc">Agneau braisé sept heures au miel et à la lavande, servi sur un lit de haricots lingot avec du beurre demi-salé.</p>
+                    </article>
+
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Saumon en papillote royale</h3>
+                            <span class="item-price">26 €</span>
+                        </div>
+                        <p class="item-desc">Filet de saumon frais cuit dans son jus, accompagné d'une julienne de légumes croquants, de vin blanc et d'une sauce beurre blanc.</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Desserts -->
+            <div class="menu-category">
+                <div class="category-header">
+                    <span class="category-line"></span>
+                    <h2 class="category-title">Desserts</h2>
+                    <span class="category-line"></span>
+                </div>
+                <p class="category-subtitle">La Douceur</p>
+
+                <div class="menu-grid">
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Dôme de chocolat noir</h3>
+                            <span class="item-price">12 €</span>
+                        </div>
+                        <p class="item-desc">Coque croustillante au cacao, cœur de glace vanille bourbon, nappé de caramel au beurre salé chaud.</p>
+                    </article>
+
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Poire pochée à l'hibiscus</h3>
+                            <span class="item-price">10 €</span>
+                        </div>
+                        <p class="item-desc">Poire entière infusée au sirop d'hibiscus et de gingembre, servie avec une légère crème Chantilly.</p>
+                    </article>
+
+                    <article class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 class="item-name">Soufflé du jour</h3>
+                            <span class="item-price">13 €</span>
+                        </div>
+                        <p class="item-desc">Soufflé aérien préparé à la commande. (Parfum du jour&nbsp;: Grand Marnier ou Pistache)</p>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🇮🇹</span>
+                    <span class="logo-text">L'Italie sur roues</span>
+                    <p class="footer-tagline">La gastronomie qui vient à vous.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="#menu">La Carte</a>
+                    <a href="about.html">À Propos</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ecoder1234. Licensed under the <a href="https://github.com/Cyber-Bytes1/1/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
