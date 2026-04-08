@@ -219,6 +219,41 @@ a {
     margin-right: auto;
 }
 
+.hero-english-name {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    opacity: 0.85;
+}
+
+.english-aside {
+    font-weight: 400;
+    font-size: 0.85em;
+    color: var(--color-muted);
+    font-style: italic;
+}
+
+.english-summary {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    font-style: italic;
+    border-left: 3px solid var(--color-gold);
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+}
+
+.footer-english {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-top: 0.15rem;
+}
+
 /* ---------- Button ---------- */
 .btn {
     display: inline-block;
